@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: furni
+  name: furni-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: furni
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: furni
+    spec:
+      containers:
+        - image: waseemahmedazlan/furni:v1
+          name: furni
+          resources: {}
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: furni-service
+  labels:
+    app: furni-service
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: furni
