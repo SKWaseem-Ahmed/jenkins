@@ -17,7 +17,7 @@ spec:
         app: furni
     spec:
       containers:
-        - image: waseemahmedazlan/furni:v1
+        - image: waseemahmedazlan/furni:6
           name: furni
           resources: {}
 status: {}
